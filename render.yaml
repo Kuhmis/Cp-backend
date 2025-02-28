@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: form-builder-backend
+    env: node
+    region: frankfurt
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
